@@ -20,6 +20,12 @@ jobs:
         run: |
           ls -l && pwd 
           echo $GITHUB_WORKSPACE
+          echo $GITHUB_WORKSPACE
+          echo $GITHUB_WORKSPACE
+          echo $GITHUB_WORKSPACE
+          echo $GITHUB_WORKSPACE
+          echo $GITHUB_WORKSPACE
+          echo $GITHUB_WORKSPACE
           echo $SSH_PRIVATE_KEY
 
       -   name: Setup SSH Keys and known_hosts
