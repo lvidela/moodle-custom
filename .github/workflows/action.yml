@@ -26,5 +26,5 @@ jobs:
                  mkdir -p ~/.ssh/
                  echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
                  sudo chmod 600 ~/.ssh/id_rsa
-                 ssh-keyscan -H 54.236.25.192  > ~/.ssh/known_hosts
+                 ssh-keyscan -p 1022 -H '54.236.25.192' >> ~/.ssh/known_hosts
                  ssh ubuntu@54.236.25.192 -p 1022  "hostname && ifconfig"
