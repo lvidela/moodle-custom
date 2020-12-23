@@ -3,8 +3,8 @@ name: primera
 on [push]
 
 jobs:
-        list-files
-          runs-on: ubuntu-latest
-          steps:
-                  - name: list files
-                    run: ls -l && pwd
+  list-files
+    runs-on: ubuntu-latest
+    steps:
+      - name: list files
+        run: ls -l && pwd
