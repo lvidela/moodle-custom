@@ -22,7 +22,7 @@ jobs:
           echo $GITHUB_WORKSPACE
 
       -   name: Setup SSH Keys and known_hosts
-           env:
+          env:
                 SSH_AUTH_SOCK: /tmp/ssh_agent.sock
                 run: |
                     mkdir -p ~/.ssh
