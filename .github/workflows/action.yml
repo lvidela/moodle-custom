@@ -22,8 +22,13 @@ jobs:
           echo $GITHUB_WORKSPACE
 
       -   name: Setup SSH Keys and known_hosts
+          env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
           run: |
-            mkdir -p ~/.ssh
-            ssh-keyscan github.com >> ~/.ssh/known_hosts
-            ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
-            ssh ubuntu@54.236.25.192 -p 1022  "hostname && ifconfig"
+               - mkdir -p ~/.ssh
+                 echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+                 chmod 600 ~/.ssh/id_rsa
+                 eval "$(ssh-agent -s)"
+                 ssh-add ~/.ssh/id_rsa
+                 ssh-keyscan -p 1022 -H '54.236.25.192' >> ~/.ssh/known_hosts
+                 ssh ubuntu@54.236.25.192 -p 1022  "hostname && ifconfig"
