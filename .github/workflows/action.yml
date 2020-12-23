@@ -22,8 +22,6 @@ jobs:
           echo $GITHUB_WORKSPACE
 
       -   name: Setup SSH Keys and known_hosts
-          env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
           run: |
                  mkdir -p ~/.ssh
                  echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
