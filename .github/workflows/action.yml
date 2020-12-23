@@ -22,9 +22,11 @@ jobs:
           echo $GITHUB_WORKSPACE
 
       -   name: Setup SSH Keys and known_hosts
+          env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
           run: |
                  mkdir -p ~/.ssh
-                 echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+                 echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
                  chmod 600 ~/.ssh/id_rsa
                  eval "$(ssh-agent -s)"
                  ssh-add ~/.ssh/id_rsa
